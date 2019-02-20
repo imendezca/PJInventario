@@ -36,7 +36,7 @@ CREATE TABLE Despacho (
 
 -- Table: Estado
 CREATE TABLE Estado (
-    IDEstado int  NOT NULL,
+    IDEstado int  NOT NULL IDENTITY,
     NombreDeEstado varchar(30)  NOT NULL,
     CONSTRAINT PK_Estado PRIMARY KEY  (IDEstado)
 );
