@@ -168,8 +168,11 @@
     <Content Include="Assets\Icons\icons8-save-48.png" />
     <Content Include="Assets\Icons\icons8-save-all-48.png" />
     <Content Include="Assets\Icons\icons8-save-close-48.png" />
+    <Content Include="Assets\Icons\icons8-search-48.png" />
     <Content Include="Assets\Icons\icons8-support-48.png" />
+    <Content Include="Assets\Icons\icons8-tick-box-48.png" />
     <Content Include="Assets\Icons\icons8-trash-can-48.png" />
+    <Content Include="Assets\Icons\icons8-unavailable-48.png" />
     <Content Include="Assets\Icons\icons8-update-48.png" />
     <Content Include="Assets\Icons\icons8-user-48.png" />
     <Content Include="Assets\Icons\icons8-workstation-48.png" />
