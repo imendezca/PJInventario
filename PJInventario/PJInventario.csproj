@@ -136,6 +136,7 @@
   <ItemGroup>
     <Content Include="Assets\css\argon.css" />
     <Content Include="Assets\css\argon.min.css" />
+    <Content Include="Assets\css\Google-font-face.css" />
     <Content Include="Assets\fonts\nucleo\nucleo-icons.svg" />
     <Content Include="Assets\Icons\icons8-add-48.png" />
     <Content Include="Assets\Icons\icons8-adjust-48.png" />

@@ -7,7 +7,8 @@
     <!-- Favicon -->
     <link href="../../Assets/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">-->
+    <link href="~/Assets/css/Google-font-face.css" rel="stylesheet" />
     <!-- Icons -->
     <link href="../../Assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
     <link href="../../Assets/vendor/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -91,7 +92,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./examples/icons.html">
+                        <a class="nav-link" href="@Url.Action("AdminIndex", "Admin")">
                             <img src="~/Assets/Icons/icons8-maintenance-48.png">  Administración
                         </a>
                     </li>
@@ -114,7 +115,7 @@
         <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
             <div class="container-fluid">
                 <!-- Brand -->
-                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Sistema de inventario de Activos</a>
+                <a class="h4 mb-0 text-white text-uppercase d-none d-md-inline-block" href="./index.html">Sistema de inventario de Activos</a>
                 <!-- User -->
                 <ul class="navbar-nav align-items-center d-none d-md-flex">
                     <li class="nav-item dropdown">
@@ -123,7 +124,7 @@
                                 <span class="avatar avatar-sm rounded-circle">
                                     <img alt="Image placeholder" src="../../Assets/img/theme/team-4-800x800.jpg">
                                 </span>
-                                <div class="media-body ml-2 d-none d-lg-block">
+                                <div class="media-body ml-2 d-none d-lg-inline-block">
                                     <span class="mb-0 text-sm  font-weight-bold">[USUARIO]</span>
                                 </div>
                             </div>
