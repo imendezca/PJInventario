@@ -23,6 +23,13 @@ CREATE TABLE Despacho (
     CodDespacho int  NOT NULL,
     CodCircuito int  NOT NULL,
     NombreDespacho varchar(50)  NOT NULL,
+	CantTecJud int  NOT NULL,
+    CantTecJur int  NOT NULL,
+    CantCoordJud int  NOT NULL,
+    CantJuezCoord int  NOT NULL,
+    CantJuezTram int  NOT NULL,
+    CantJueces int  NOT NULL,
+    CantOtros int  NOT NULL,
     CONSTRAINT PK_Despacho PRIMARY KEY  (CodDespacho),
 	CONSTRAINT Despacho_Circuito FOREIGN KEY (CodCircuito) REFERENCES Circuito (CodCircuito)
 );
@@ -52,7 +59,7 @@ CREATE TABLE Puesto_Despacho (
 
 -- Table: TipoDeEquipo
 CREATE TABLE TipoEquipo (
-    IDTipoEquipo int  NOT NULL,
+    IDTipoEquipo int  NOT NULL IDENTITY,
     Nombre varchar(25)  NOT NULL,
     CONSTRAINT PK_TipoEquipo PRIMARY KEY  (IDTipoEquipo)
 );
@@ -93,7 +100,7 @@ CREATE TABLE Asignado (
 
 -- Table: Equipos_Permitidos
 CREATE TABLE Equipos_Permitidos (
-    IDPermitido int  NOT NULL,
+    IDPermitido int  NOT NULL IDENTITY,
     TipoEquipo1 int  NOT NULL,
     TipoEquipo2 int  NOT NULL,
     CONSTRAINT PK_Equipos_Permitidos PRIMARY KEY  (IDPermitido),
@@ -130,7 +137,7 @@ CREATE TABLE LogModificacion (
 
 -- Table: Rol
 CREATE TABLE Rol (
-    CodRol int  NOT NULL,
+    CodRol int  NOT NULL IDENTITY,
     Descripcion varchar(20)  NOT NULL,
     CONSTRAINT PK_Rol PRIMARY KEY  (CodRol)
 );
