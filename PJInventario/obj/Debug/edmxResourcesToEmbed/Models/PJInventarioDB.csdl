@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PJInventario" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Circuito">
+    <Key>
+      <PropertyRef Name="CodCircuito" />
+    </Key>
+    <Property Name="CodCircuito" Type="Int32" Nullable="false" />
+    <Property Name="NombreCircuito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Despacho" Relationship="Self.Despacho_Circuito" FromRole="Circuito" ToRole="Despacho" />
+  </EntityType>
+  <EntityType Name="Contrato">
+    <Key>
+      <PropertyRef Name="NumContrato" />
+    </Key>
+    <Property Name="NumContrato" Type="Int32" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaFinal" Type="DateTime" Precision="3" />
+    <Property Name="NombreEmpresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Equipo" Relationship="Self.Equipo_Contrato" FromRole="Contrato" ToRole="Equipo" />
+  </EntityType>
+  <EntityType Name="Despacho">
+    <Key>
+      <PropertyRef Name="CodDespacho" />
+    </Key>
+    <Property Name="CodDespacho" Type="Int32" Nullable="false" />
+    <Property Name="CodCircuito" Type="Int32" Nullable="false" />
+    <Property Name="NombreDespacho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CantTecJud" Type="Int32" Nullable="false" />
+    <Property Name="CantTecJur" Type="Int32" Nullable="false" />
+    <Property Name="CantCoordJud" Type="Int32" Nullable="false" />
+    <Property Name="CantJuezCoord" Type="Int32" Nullable="false" />
+    <Property Name="CantJuezTram" Type="Int32" Nullable="false" />
+    <Property Name="CantJueces" Type="Int32" Nullable="false" />
+    <Property Name="CantOtros" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Circuito" Relationship="Self.Despacho_Circuito" FromRole="Despacho" ToRole="Circuito" />
+    <NavigationProperty Name="Puesto_Despacho" Relationship="Self.Puesto_Despacho_Despacho" FromRole="Despacho" ToRole="Puesto_Despacho" />
+  </EntityType>
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="Activo" />
+    </Key>
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="NumSerie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Marca" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDeEquipo" Type="Int32" Nullable="false" />
+    <Property Name="CodDespacho" Type="Int32" Nullable="false" />
+    <Property Name="IDPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumContrato" Type="Int32" Nullable="false" />
+    <Property Name="IDEstado" Type="Int32" Nullable="false" />
+    <Property Name="Alquilado" Type="Boolean" Nullable="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCrea" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UsuarioModifica" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UltimaModicacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Contrato" Relationship="Self.Equipo_Contrato" FromRole="Equipo" ToRole="Contrato" />
+    <NavigationProperty Name="Estado" Relationship="Self.Equipo_Estado" FromRole="Equipo" ToRole="Estado" />
+    <NavigationProperty Name="Puesto_Despacho" Relationship="Self.Equipo_Puesto_Despacho" FromRole="Equipo" ToRole="Puesto_Despacho" />
+    <NavigationProperty Name="TipoEquipo" Relationship="Self.Equipo_TipoDeEquipo" FromRole="Equipo" ToRole="TipoEquipo" />
+    <NavigationProperty Name="Equipo1" Relationship="Self.Asignado" FromRole="Equipo" ToRole="Equipo1" />
+    <NavigationProperty Name="Equipo2" Relationship="Self.Asignado" FromRole="Equipo1" ToRole="Equipo" />
+  </EntityType>
+  <EntityType Name="Equipos_Permitidos">
+    <Key>
+      <PropertyRef Name="IDPermitido" />
+    </Key>
+    <Property Name="IDPermitido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoEquipo1" Type="Int32" Nullable="false" />
+    <Property Name="TipoEquipo2" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TipoEquipo" Relationship="Self.Equipos_Permitidos_TipoDeEquipo1" FromRole="Equipos_Permitidos" ToRole="TipoEquipo" />
+    <NavigationProperty Name="TipoEquipo3" Relationship="Self.Equipos_Permitidos_TipoDeEquipo2" FromRole="Equipos_Permitidos" ToRole="TipoEquipo" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="IDEstado" />
+    </Key>
+    <Property Name="IDEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreDeEstado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Equipo" Relationship="Self.Equipo_Estado" FromRole="Estado" ToRole="Equipo" />
+  </EntityType>
+  <EntityType Name="Historico">
+    <Key>
+      <PropertyRef Name="Activo" />
+    </Key>
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="NumSerie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Marca" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDeEquipo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreDespacho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombrePuesto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumContrato" Type="Int32" Nullable="false" />
+    <Property Name="Alquilado" Type="Boolean" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCrea" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UsuarioModifica" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UltimaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="LogModificacion">
+    <Key>
+      <PropertyRef Name="NumLog" />
+    </Key>
+    <Property Name="NumLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="IDPuesto" />
+    </Key>
+    <Property Name="IDPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombrePuesto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Puesto_Despacho" Relationship="Self.Puesto_Despacho_Puesto" FromRole="Puesto" ToRole="Puesto_Despacho" />
+  </EntityType>
+  <EntityType Name="Puesto_Despacho">
+    <Key>
+      <PropertyRef Name="CodDespacho" />
+      <PropertyRef Name="IDPuesto" />
+    </Key>
+    <Property Name="CodDespacho" Type="Int32" Nullable="false" />
+    <Property Name="IDPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Despacho" Relationship="Self.Puesto_Despacho_Despacho" FromRole="Puesto_Despacho" ToRole="Despacho" />
+    <NavigationProperty Name="Equipo" Relationship="Self.Equipo_Puesto_Despacho" FromRole="Puesto_Despacho" ToRole="Equipo" />
+    <NavigationProperty Name="Puesto" Relationship="Self.Puesto_Despacho_Puesto" FromRole="Puesto_Despacho" ToRole="Puesto" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="CodRol" />
+    </Key>
+    <Property Name="CodRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="TipoEquipo">
+    <Key>
+      <PropertyRef Name="IDTipoEquipo" />
+    </Key>
+    <Property Name="IDTipoEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Equipo" Relationship="Self.Equipo_TipoDeEquipo" FromRole="TipoEquipo" ToRole="Equipo" />
+    <NavigationProperty Name="Equipos_Permitidos" Relationship="Self.Equipos_Permitidos_TipoDeEquipo1" FromRole="TipoEquipo" ToRole="Equipos_Permitidos" />
+    <NavigationProperty Name="Equipos_Permitidos1" Relationship="Self.Equipos_Permitidos_TipoDeEquipo2" FromRole="TipoEquipo" ToRole="Equipos_Permitidos" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="CodRol" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrimerApellido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rol" Relationship="Self.Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="Despacho_Circuito">
+    <End Role="Circuito" Type="Self.Circuito" Multiplicity="1" />
+    <End Role="Despacho" Type="Self.Despacho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circuito">
+        <PropertyRef Name="CodCircuito" />
+      </Principal>
+      <Dependent Role="Despacho">
+        <PropertyRef Name="CodCircuito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Equipo_Contrato">
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="1" />
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contrato">
+        <PropertyRef Name="NumContrato" />
+      </Principal>
+      <Dependent Role="Equipo">
+        <PropertyRef Name="NumContrato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Puesto_Despacho_Despacho">
+    <End Role="Despacho" Type="Self.Despacho" Multiplicity="1" />
+    <End Role="Puesto_Despacho" Type="Self.Puesto_Despacho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Despacho">
+        <PropertyRef Name="CodDespacho" />
+      </Principal>
+      <Dependent Role="Puesto_Despacho">
+        <PropertyRef Name="CodDespacho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Equipo_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="IDEstado" />
+      </Principal>
+      <Dependent Role="Equipo">
+        <PropertyRef Name="IDEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Equipo_Puesto_Despacho">
+    <End Role="Puesto_Despacho" Type="Self.Puesto_Despacho" Multiplicity="1" />
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto_Despacho">
+        <PropertyRef Name="CodDespacho" />
+        <PropertyRef Name="IDPuesto" />
+      </Principal>
+      <Dependent Role="Equipo">
+        <PropertyRef Name="CodDespacho" />
+        <PropertyRef Name="IDPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Equipo_TipoDeEquipo">
+    <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="1" />
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEquipo">
+        <PropertyRef Name="IDTipoEquipo" />
+      </Principal>
+      <Dependent Role="Equipo">
+        <PropertyRef Name="TipoDeEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Equipos_Permitidos_TipoDeEquipo1">
+    <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="1" />
+    <End Role="Equipos_Permitidos" Type="Self.Equipos_Permitidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEquipo">
+        <PropertyRef Name="IDTipoEquipo" />
+      </Principal>
+      <Dependent Role="Equipos_Permitidos">
+        <PropertyRef Name="TipoEquipo1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Equipos_Permitidos_TipoDeEquipo2">
+    <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="1" />
+    <End Role="Equipos_Permitidos" Type="Self.Equipos_Permitidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEquipo">
+        <PropertyRef Name="IDTipoEquipo" />
+      </Principal>
+      <Dependent Role="Equipos_Permitidos">
+        <PropertyRef Name="TipoEquipo2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Puesto_Despacho_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Puesto_Despacho" Type="Self.Puesto_Despacho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="IDPuesto" />
+      </Principal>
+      <Dependent Role="Puesto_Despacho">
+        <PropertyRef Name="IDPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Usuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="CodRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="CodRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Asignado">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+    <End Role="Equipo1" Type="Self.Equipo" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="PJInventarioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Circuito" EntityType="Self.Circuito" />
+    <EntitySet Name="Contrato" EntityType="Self.Contrato" />
+    <EntitySet Name="Despacho" EntityType="Self.Despacho" />
+    <EntitySet Name="Equipo" EntityType="Self.Equipo" />
+    <EntitySet Name="Equipos_Permitidos" EntityType="Self.Equipos_Permitidos" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" />
+    <EntitySet Name="Historico" EntityType="Self.Historico" />
+    <EntitySet Name="LogModificacion" EntityType="Self.LogModificacion" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" />
+    <EntitySet Name="Puesto_Despacho" EntityType="Self.Puesto_Despacho" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="Despacho_Circuito" Association="Self.Despacho_Circuito">
+      <End Role="Circuito" EntitySet="Circuito" />
+      <End Role="Despacho" EntitySet="Despacho" />
+    </AssociationSet>
+    <AssociationSet Name="Equipo_Contrato" Association="Self.Equipo_Contrato">
+      <End Role="Contrato" EntitySet="Contrato" />
+      <End Role="Equipo" EntitySet="Equipo" />
+    </AssociationSet>
+    <AssociationSet Name="Puesto_Despacho_Despacho" Association="Self.Puesto_Despacho_Despacho">
+      <End Role="Despacho" EntitySet="Despacho" />
+      <End Role="Puesto_Despacho" EntitySet="Puesto_Despacho" />
+    </AssociationSet>
+    <AssociationSet Name="Equipo_Estado" Association="Self.Equipo_Estado">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Equipo" EntitySet="Equipo" />
+    </AssociationSet>
+    <AssociationSet Name="Equipo_Puesto_Despacho" Association="Self.Equipo_Puesto_Despacho">
+      <End Role="Puesto_Despacho" EntitySet="Puesto_Despacho" />
+      <End Role="Equipo" EntitySet="Equipo" />
+    </AssociationSet>
+    <AssociationSet Name="Equipo_TipoDeEquipo" Association="Self.Equipo_TipoDeEquipo">
+      <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+      <End Role="Equipo" EntitySet="Equipo" />
+    </AssociationSet>
+    <AssociationSet Name="Equipos_Permitidos_TipoDeEquipo1" Association="Self.Equipos_Permitidos_TipoDeEquipo1">
+      <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+      <End Role="Equipos_Permitidos" EntitySet="Equipos_Permitidos" />
+    </AssociationSet>
+    <AssociationSet Name="Equipos_Permitidos_TipoDeEquipo2" Association="Self.Equipos_Permitidos_TipoDeEquipo2">
+      <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+      <End Role="Equipos_Permitidos" EntitySet="Equipos_Permitidos" />
+    </AssociationSet>
+    <AssociationSet Name="Puesto_Despacho_Puesto" Association="Self.Puesto_Despacho_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Puesto_Despacho" EntitySet="Puesto_Despacho" />
+    </AssociationSet>
+    <AssociationSet Name="Usuario_Rol" Association="Self.Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="Asignado" Association="Self.Asignado">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="Equipo1" EntitySet="Equipo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

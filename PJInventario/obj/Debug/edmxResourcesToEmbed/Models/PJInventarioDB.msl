@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PJInventarioStoreContainer" CdmEntityContainer="PJInventarioEntities">
+    <EntitySetMapping Name="Circuito">
+      <EntityTypeMapping TypeName="PJInventario.Circuito">
+        <MappingFragment StoreEntitySet="Circuito">
+          <ScalarProperty Name="CodCircuito" ColumnName="CodCircuito" />
+          <ScalarProperty Name="NombreCircuito" ColumnName="NombreCircuito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contrato">
+      <EntityTypeMapping TypeName="PJInventario.Contrato">
+        <MappingFragment StoreEntitySet="Contrato">
+          <ScalarProperty Name="NumContrato" ColumnName="NumContrato" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Despacho">
+      <EntityTypeMapping TypeName="PJInventario.Despacho">
+        <MappingFragment StoreEntitySet="Despacho">
+          <ScalarProperty Name="CodDespacho" ColumnName="CodDespacho" />
+          <ScalarProperty Name="CodCircuito" ColumnName="CodCircuito" />
+          <ScalarProperty Name="NombreDespacho" ColumnName="NombreDespacho" />
+          <ScalarProperty Name="CantTecJud" ColumnName="CantTecJud" />
+          <ScalarProperty Name="CantTecJur" ColumnName="CantTecJur" />
+          <ScalarProperty Name="CantCoordJud" ColumnName="CantCoordJud" />
+          <ScalarProperty Name="CantJuezCoord" ColumnName="CantJuezCoord" />
+          <ScalarProperty Name="CantJuezTram" ColumnName="CantJuezTram" />
+          <ScalarProperty Name="CantJueces" ColumnName="CantJueces" />
+          <ScalarProperty Name="CantOtros" ColumnName="CantOtros" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipo">
+      <EntityTypeMapping TypeName="PJInventario.Equipo">
+        <MappingFragment StoreEntitySet="Equipo">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="NumSerie" ColumnName="NumSerie" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="TipoDeEquipo" ColumnName="TipoDeEquipo" />
+          <ScalarProperty Name="CodDespacho" ColumnName="CodDespacho" />
+          <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+          <ScalarProperty Name="NumContrato" ColumnName="NumContrato" />
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="Alquilado" ColumnName="Alquilado" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="UltimaModicacion" ColumnName="UltimaModicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipos_Permitidos">
+      <EntityTypeMapping TypeName="PJInventario.Equipos_Permitidos">
+        <MappingFragment StoreEntitySet="Equipos_Permitidos">
+          <ScalarProperty Name="IDPermitido" ColumnName="IDPermitido" />
+          <ScalarProperty Name="TipoEquipo1" ColumnName="TipoEquipo1" />
+          <ScalarProperty Name="TipoEquipo2" ColumnName="TipoEquipo2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="PJInventario.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="NombreDeEstado" ColumnName="NombreDeEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Historico">
+      <EntityTypeMapping TypeName="PJInventario.Historico">
+        <MappingFragment StoreEntitySet="Historico">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="NumSerie" ColumnName="NumSerie" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="TipoDeEquipo" ColumnName="TipoDeEquipo" />
+          <ScalarProperty Name="NombreDespacho" ColumnName="NombreDespacho" />
+          <ScalarProperty Name="NombrePuesto" ColumnName="NombrePuesto" />
+          <ScalarProperty Name="NumContrato" ColumnName="NumContrato" />
+          <ScalarProperty Name="Alquilado" ColumnName="Alquilado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+          <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogModificacion">
+      <EntityTypeMapping TypeName="PJInventario.LogModificacion">
+        <MappingFragment StoreEntitySet="LogModificacion">
+          <ScalarProperty Name="NumLog" ColumnName="NumLog" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto">
+      <EntityTypeMapping TypeName="PJInventario.Puesto">
+        <MappingFragment StoreEntitySet="Puesto">
+          <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+          <ScalarProperty Name="NombrePuesto" ColumnName="NombrePuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto_Despacho">
+      <EntityTypeMapping TypeName="PJInventario.Puesto_Despacho">
+        <MappingFragment StoreEntitySet="Puesto_Despacho">
+          <ScalarProperty Name="CodDespacho" ColumnName="CodDespacho" />
+          <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="PJInventario.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="CodRol" ColumnName="CodRol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEquipo">
+      <EntityTypeMapping TypeName="PJInventario.TipoEquipo">
+        <MappingFragment StoreEntitySet="TipoEquipo">
+          <ScalarProperty Name="IDTipoEquipo" ColumnName="IDTipoEquipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="PJInventario.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="CodRol" ColumnName="CodRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+          <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Asignado" TypeName="PJInventario.Asignado" StoreEntitySet="Asignado">
+      <EndProperty Name="Equipo">
+        <ScalarProperty Name="Activo" ColumnName="Equipo1" />
+      </EndProperty>
+      <EndProperty Name="Equipo1">
+        <ScalarProperty Name="Activo" ColumnName="Equipo2" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

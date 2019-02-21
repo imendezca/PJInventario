@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0cb1f7e12a63426b9dcac4446bd224aa" Name="Diagram1">
+        <EntityTypeShape EntityType="PJInventario.Circuito" Width="1.5" PointX="1.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Contrato" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Despacho" Width="1.5" PointX="1.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Equipo" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Equipos_Permitidos" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Estado" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Historico" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.LogModificacion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Puesto" Width="1.5" PointX="1.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Puesto_Despacho" Width="1.5" PointX="3.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Rol" Width="1.5" PointX="8.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.TipoEquipo" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PJInventario.Usuario" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PJInventario.Despacho_Circuito" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Equipo_Contrato" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Puesto_Despacho_Despacho" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Equipo_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Equipo_Puesto_Despacho" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Equipo_TipoDeEquipo" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Equipos_Permitidos_TipoDeEquipo1" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Equipos_Permitidos_TipoDeEquipo2" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Puesto_Despacho_Puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Usuario_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="PJInventario.Asignado" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
