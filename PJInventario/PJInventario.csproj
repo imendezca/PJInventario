@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,9 +135,64 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Circuito.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contrato.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Despacho.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Equipo.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Equipos_Permitidos.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estado.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Historico.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogModificacion.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PJInventarioDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PJInventarioDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PJInventarioDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PJInventarioDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PJInventarioDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Puesto.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Puesto_Despacho.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rol.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoEquipo.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>PJInventarioDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -176,6 +239,7 @@
     <Content Include="Assets\Icons\icons8-unavailable-48.png" />
     <Content Include="Assets\Icons\icons8-update-48.png" />
     <Content Include="Assets\Icons\icons8-user-48.png" />
+    <Content Include="Assets\Icons\icons8-view-details-48.png" />
     <Content Include="Assets\Icons\icons8-workstation-48.png" />
     <Content Include="Assets\Icons\icons8-xls-48.png" />
     <Content Include="Assets\img\brand\blue.png" />
@@ -1880,6 +1944,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\PJInventarioDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PJInventarioDB.Context.cs</LastGenOutput>
+      <DependentUpon>PJInventarioDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PJInventarioDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PJInventarioDB.edmx</DependentUpon>
+      <LastGenOutput>PJInventarioDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Assets\fonts\nucleo\nucleo-icons.eot" />
@@ -2096,6 +2170,13 @@
     <Content Include="Assets\vendor\nucleo\fonts\nucleo-icons.woff" />
     <Content Include="Assets\vendor\nucleo\fonts\nucleo-icons.woff2" />
     <Content Include="Assets\vendor\prismjs\components.json" />
+    <EntityDeploy Include="Models\PJInventarioDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PJInventarioDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PJInventarioDB.edmx.diagram">
+      <DependentUpon>PJInventarioDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2107,7 +2188,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -2124,6 +2207,7 @@
     <Content Include="Views\Home\Prueba.cshtml" />
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
+    <Content Include="Views\Equipo\EquipoIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2134,7 +2218,6 @@
     <Folder Include="Assets\vendor\chart.js\dist\docs\" />
     <Folder Include="Assets\vendor\holderjs\src\" />
     <Folder Include="Assets\vendor\holderjs\test\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2148,6 +2231,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
