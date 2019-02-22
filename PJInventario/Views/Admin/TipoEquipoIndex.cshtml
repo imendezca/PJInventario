@@ -56,26 +56,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in @ViewBag.ListaTipoEquipo)
-                    {
-                        <tr>
-                            <td>
-                                @item.IDTipoEquipo
-                            </td>
-                            <td>
-                                @item.Nombre
-                            </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
-                                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
-                                    </a>
-                                    <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleDespacho", "Admin")">
-                                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                    @{
+                        string btnDetalles = "";
+                        string mdlDetalles = "";
+                        foreach (var item in @ViewBag.ListaTipoEquipo)
+                        {
+                            btnDetalles = "btnDetalles_" + item.IDTipoEquipo;
+                            mdlDetalles = "mdlDetalles_" + item.IDTipoEquipo;
+                            <tr>
+                                <td>
+                                    @item.IDTipoEquipo
+                                </td>
+                                <td>
+                                    @item.Nombre
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
+                                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                        </button>
+                                        <button class="btn" style="font-size: x-small; font: bold;" data-toggle="modal" data-target="#@mdlDetalles">
+                                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                                        </button>
+                                        <div class="modal fade" id="@mdlDetalles" tabindex="-1" role="dialog" aria-labelledby="fm-modal2" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-secondary">
+                                                        <h5 class="modal-title text-black-50 text-center">Detalles</h5>
+                                                        <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
