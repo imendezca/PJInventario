@@ -244,6 +244,7 @@
     <Content Include="Assets\Icons\icons8-view-details-48.png" />
     <Content Include="Assets\Icons\icons8-workstation-48.png" />
     <Content Include="Assets\Icons\icons8-xls-48.png" />
+    <Content Include="Assets\Icons\Logo.png" />
     <Content Include="Assets\img\brand\blue.png" />
     <Content Include="Assets\img\brand\favicon.png" />
     <Content Include="Assets\img\brand\white.png" />
@@ -2211,6 +2212,7 @@
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
     <Content Include="Views\Equipo\EquipoIndex.cshtml" />
     <Content Include="Views\Admin\DespachoIndex.cshtml" />
+    <Content Include="Views\Admin\TipoEquipoIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

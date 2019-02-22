@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PJInventario.Models.TipoEquipo>
+@{
+    ViewBag.Title = "TipoEquipoIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TipoEquipoIndex</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Nombre del Circuito
+            </th>
+            <th>
+                Código Despacho
+            </th>
+            <th>-</th>
+        </tr>
+        <tr>
+            <td>
+                Nombre del Circuito
+            </td>
+            <td>
+                Código Despacho
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
+                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                    </a>
+                    <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleDespacho", "Admin")">
+                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                    </a>
+                </div>
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+

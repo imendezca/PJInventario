@@ -23,5 +23,11 @@ namespace PJInventario.Controllers
         {
            return View (Data.DespachoData.ListDespacho()); 
         }
+
+        // GET: TipoEquipo
+        public ActionResult TipoEquipoIndex()
+        {
+            return View();
+        }
     }
 }
