@@ -33,6 +33,7 @@ namespace PJInventario.Controllers
         // GET: TipoEquipo
         public ActionResult TipoEquipoIndex()
         {
+            ViewBag.ListaTipoEquipo = TipoEquipoData.ListTipoEquipo();
             return View();
         }
     }
