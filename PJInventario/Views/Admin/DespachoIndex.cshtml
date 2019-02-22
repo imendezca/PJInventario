@@ -35,10 +35,10 @@
 
                                         <div class="form-group col-8">
                                             @Html.DropDownList("CodCircuito", null, htmlAttributes: new { @class = "form-control", placeholder = "Código Circuito" })
-                                            @Html.ValidationMessageFor(model => model.CodCircuito, "", new { @class = "text-danger" })                                            
+                                            @Html.ValidationMessageFor(model => model.CodCircuito, "", new { @class = "text-danger" })
                                         </div>
 
-                                        <div class="form-group col-8">                                           
+                                        <div class="form-group col-8">
                                             @Html.EditorFor(model => model.NombreDespacho, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre del Despacho" } })
                                             @Html.ValidationMessageFor(model => model.NombreDespacho, "", new { @class = "text-danger" })
                                         </div>
@@ -79,7 +79,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-10">                                               
+                                            <div class="col-md-offset-2 col-md-10">
                                                 <input type="submit" value="Crear" class="btn btn-success" />
                                             </div>
                                         </div>
@@ -94,87 +94,98 @@
     </div>
 </div>
 
-<div class="table-responsive">
-    <table class="table table-bordered">
-        <tr>
-            <th>
-                Nombre del Circuito
-            </th>
-            <th>
-                Código Despacho
-            </th>
-            <th>
-                Nombre del Despacho
-            </th>
-            <th>
-                Técnicos
-            </th>
-            <th>
-                Técnicos Judicial
-            </th>
-            <th>
-                Coordinadores Judiciales
-            </th>
-            <th>
-                Juez Coordinador
-            </th>
-            <th>
-                Juez Tramitador
-            </th>
-            <th>
-                Juez/Fiscal
-            </th>
-            <th>
-                Otros Profesionales
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in @ViewBag.ListaDespacho)
-        {
-            <tr>
-                <td>
-                    @item.Circuito.NombreCircuito
-                </td>
-                <td>
-                    @item.CodDespacho
-                </td>
-                <td>
-                    @item.NombreDespacho
-                </td>
-                <td>
-                    @item.CantTecJud
-                </td>
-                <td>
-                    @item.CantTecJur
-                </td>
-                <td>
-                    @item.CantCoordJud
-                </td>
-                <td>
-                    @item.CantJuezCoord
-                </td>
-                <td>
-                    @item.CantJuezTram
-                </td>
-                <td>
-                    @item.CantJueces
-                </td>
-                <td>
-                    @item.CantOtros
-                </td>
-                <td>
-                    <div class="btn-group">
-                        <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
-                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
-                        </a>
-                        <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleDespacho", "Admin")">
-                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        }
-
-    </table>
-</div>
+@{
+    if(@ViewBag.ListaDespacho.Count != 0)
+    { 
+    <div class="table-responsive table-striped">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        Nombre del Circuito
+                    </th>
+                    <th>
+                        Código Despacho
+                    </th>
+                    <th>
+                        Nombre del Despacho
+                    </th>
+                    <th>
+                        Técnicos
+                    </th>
+                    <th>
+                        Técnicos Judicial
+                    </th>
+                    <th>
+                        Coordinadores Judiciales
+                    </th>
+                    <th>
+                        Juez Coordinador
+                    </th>
+                    <th>
+                        Juez Tramitador
+                    </th>
+                    <th>
+                        Juez/Fiscal
+                    </th>
+                    <th>
+                        Otros Profesionales
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @ViewBag.ListaDespacho)
+                {
+                    <tr>
+                        <td>
+                            @item.Circuito.NombreCircuito
+                        </td>
+                        <td>
+                            @item.CodDespacho
+                        </td>
+                        <td>
+                            @item.NombreDespacho
+                        </td>
+                        <td>
+                            @item.CantTecJud
+                        </td>
+                        <td>
+                            @item.CantTecJur
+                        </td>
+                        <td>
+                            @item.CantCoordJud
+                        </td>
+                        <td>
+                            @item.CantJuezCoord
+                        </td>
+                        <td>
+                            @item.CantJuezTram
+                        </td>
+                        <td>
+                            @item.CantJueces
+                        </td>
+                        <td>
+                            @item.CantOtros
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
+                                    <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                </a>
+                                <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleDespacho", "Admin")">
+                                    <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <h1>No hay despachos que mostrar</h1>
+}
+}
