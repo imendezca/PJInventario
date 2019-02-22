@@ -18,6 +18,11 @@ namespace PJInventario
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+               name: "Administrar",
+               url: "{controller}",
+               defaults: new { controller = "Admin", action = "AdminIndex", id = UrlParameter.Optional }
+           );
         }
     }
 }
