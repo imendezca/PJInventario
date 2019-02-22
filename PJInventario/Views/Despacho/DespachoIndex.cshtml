@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PJInventario.Models.Despacho>
+@{
+    ViewBag.Title = "Despacho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Despacho</h2>
+
+<div class="table-responsive">
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Nombre del Circuito
+        </th>
+        <th>
+            Código Despacho
+        </th>
+        <th>
+            Nombre del Despacho
+        </th>
+        <th>
+            Técnicos
+        </th>
+        <th>
+            Técnicos Judicial
+        </th>
+        <th>
+            Coordinadores Judiciales
+        </th>
+        <th>
+            Juez Coordinador
+        </th>
+        <th>
+            Juez Tramitador
+        </th>
+        <th>
+            Jueces
+        </th>
+        <th>
+            Otros Profesionales
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Circuito.NombreCircuito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodDespacho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreDespacho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantTecJud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantTecJur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantCoordJud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantJuezCoord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantJuezTram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantJueces)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantOtros)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Despacho")">
+                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                    </a>
+                    <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleDespacho", "Despacho")">
+                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                    </a>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

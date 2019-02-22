@@ -22,7 +22,7 @@
     <Key>
       <PropertyRef Name="CodDespacho" />
     </Key>
-    <Property Name="CodDespacho" Type="Int32" Nullable="false" />
+    <Property Name="CodDespacho" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CodCircuito" Type="Int32" Nullable="false" />
     <Property Name="NombreDespacho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CantTecJud" Type="Int32" Nullable="false" />
@@ -44,7 +44,7 @@
     <Property Name="Marca" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="TipoDeEquipo" Type="Int32" Nullable="false" />
-    <Property Name="CodDespacho" Type="Int32" Nullable="false" />
+    <Property Name="CodDespacho" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IDPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NumContrato" Type="Int32" Nullable="false" />
     <Property Name="IDEstado" Type="Int32" Nullable="false" />
@@ -119,7 +119,7 @@
       <PropertyRef Name="CodDespacho" />
       <PropertyRef Name="IDPuesto" />
     </Key>
-    <Property Name="CodDespacho" Type="Int32" Nullable="false" />
+    <Property Name="CodDespacho" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IDPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Despacho" Relationship="Self.Puesto_Despacho_Despacho" FromRole="Puesto_Despacho" ToRole="Despacho" />
     <NavigationProperty Name="Equipo" Relationship="Self.Equipo_Puesto_Despacho" FromRole="Puesto_Despacho" ToRole="Equipo" />

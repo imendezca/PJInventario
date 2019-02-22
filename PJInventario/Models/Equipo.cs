@@ -26,7 +26,7 @@ namespace PJInventario.Models
         public string Marca { get; set; }
         public string Descripcion { get; set; }
         public int TipoDeEquipo { get; set; }
-        public int CodDespacho { get; set; }
+        public string CodDespacho { get; set; }
         public string IDPuesto { get; set; }
         public int NumContrato { get; set; }
         public int IDEstado { get; set; }

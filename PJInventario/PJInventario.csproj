@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DespachoController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -211,6 +212,7 @@
     <Content Include="Assets\Icons\icons8-copybook-48.png" />
     <Content Include="Assets\Icons\icons8-customer-48.png" />
     <Content Include="Assets\Icons\icons8-delete-bin-48.png" />
+    <Content Include="Assets\Icons\icons8-department-48.png" />
     <Content Include="Assets\Icons\icons8-download-48.png" />
     <Content Include="Assets\Icons\icons8-downloading-updates-48.png" />
     <Content Include="Assets\Icons\icons8-edit-48.png" />
@@ -1946,8 +1948,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\PJInventarioDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PJInventarioDB.Context.cs</LastGenOutput>
       <DependentUpon>PJInventarioDB.edmx</DependentUpon>
+      <LastGenOutput>PJInventarioDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\PJInventarioDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2208,6 +2210,7 @@
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
     <Content Include="Views\Equipo\EquipoIndex.cshtml" />
+    <Content Include="Views\Despacho\DespachoIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

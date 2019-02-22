@@ -20,7 +20,7 @@ namespace PJInventario.Models
             this.Equipo = new HashSet<Equipo>();
         }
     
-        public int CodDespacho { get; set; }
+        public string CodDespacho { get; set; }
         public string IDPuesto { get; set; }
     
         public virtual Despacho Despacho { get; set; }

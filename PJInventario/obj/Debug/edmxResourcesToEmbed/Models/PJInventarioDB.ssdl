@@ -28,7 +28,7 @@
     <Key>
       <PropertyRef Name="CodDespacho" />
     </Key>
-    <Property Name="CodDespacho" Type="int" Nullable="false" />
+    <Property Name="CodDespacho" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="CodCircuito" Type="int" Nullable="false" />
     <Property Name="NombreDespacho" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CantTecJud" Type="int" Nullable="false" />
@@ -48,7 +48,7 @@
     <Property Name="Marca" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="255" />
     <Property Name="TipoDeEquipo" Type="int" Nullable="false" />
-    <Property Name="CodDespacho" Type="int" Nullable="false" />
+    <Property Name="CodDespacho" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="IDPuesto" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="NumContrato" Type="int" Nullable="false" />
     <Property Name="IDEstado" Type="int" Nullable="false" />
@@ -113,7 +113,7 @@
       <PropertyRef Name="CodDespacho" />
       <PropertyRef Name="IDPuesto" />
     </Key>
-    <Property Name="CodDespacho" Type="int" Nullable="false" />
+    <Property Name="CodDespacho" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="IDPuesto" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="Rol">
