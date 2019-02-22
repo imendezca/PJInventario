@@ -1,6 +1,6 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2019-02-18 17:02:04.539
-
+USE PJInventario;
 -- tables
 -- Table: Circuito
 CREATE TABLE Circuito (
@@ -20,7 +20,7 @@ CREATE TABLE Contrato (
 
 -- Table: Despacho
 CREATE TABLE Despacho (
-    CodDespacho int  NOT NULL,
+    CodDespacho varchar(4)  NOT NULL,
     CodCircuito int  NOT NULL,
     NombreDespacho varchar(50)  NOT NULL,
 	CantTecJud int  NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE Puesto (
 
 -- Table: Puesto_Despacho
 CREATE TABLE Puesto_Despacho (
-    CodDespacho int  NOT NULL,
+    CodDespacho varchar(4) NOT NULL,
     IDPuesto varchar(10)  NOT NULL,
     CONSTRAINT PK_Puesto_Despacho PRIMARY KEY  (CodDespacho,IDPuesto),
 	CONSTRAINT Puesto_Despacho_Despacho FOREIGN KEY (CodDespacho) REFERENCES Despacho (CodDespacho),
@@ -71,7 +71,7 @@ CREATE TABLE Equipo (
     Marca varchar(15)  NOT NULL,
     Descripcion varchar(255),
     TipoDeEquipo int  NOT NULL,
-    CodDespacho int  NOT NULL,
+    CodDespacho varchar(4)  NOT NULL,
     IDPuesto varchar(10)  NOT NULL,
     NumContrato int  NOT NULL,
     IDEstado int  NOT NULL,
