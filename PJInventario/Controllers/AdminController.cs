@@ -21,7 +21,13 @@ namespace PJInventario.Controllers
         // GET: Despacho
         public ActionResult DespachoIndex()
         {
-           return View (Data.DespachoData.ListDespacho()); 
+           return View (DespachoData.ListDespacho()); 
+        }
+
+        public ActionResult DespachoCrear()
+        {
+            ViewBag.CodCircuito = DespachoData.ExtraeNombreCircuito();
+            return View();
         }
 
         // GET: TipoEquipo
