@@ -19,12 +19,32 @@ namespace PJInventario.Controllers
         {
             return View();
         }
+
+        //**********************************//
+        //      CÓDIGO TIPO DE EQUIPO       //
+        //**********************************//
+
         // GET: TipoEquipo
         public ActionResult TipoEquipoIndex()
         {
             ViewBag.ListaTipoEquipo = TipoEquipoData.ListTipoEquipo();
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CreaTipoEquipo(TipoEquipo despacho)
+        {
+            if (ModelState.IsValid)
+            {
+                TipoEquipoData.agregaTipoEquipo(despacho);
+                return RedirectToAction("TipoEquipoIndex");
+            }
+            return View("TipoEquipoIndex");
+        }
+
+        //**********************************//
+        //  TERMINA CÓDIGO TIPO DE EQUIPO   //
+        //**********************************//
 
 
         //

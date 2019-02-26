@@ -15,5 +15,10 @@ namespace PJInventario.Data
             var listaTipoEquipo= db.TipoEquipo;
             return listaTipoEquipo.ToList();
         }
+
+        public static void agregaTipoEquipo (TipoEquipo tipoEquipoNuevo)
+        {
+            db.sp_Crea_TipoEquipo(tipoEquipoNuevo.Nombre);
+        }
     }
 }

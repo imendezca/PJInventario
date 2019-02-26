@@ -262,3 +262,7 @@ C:\Users\jzamoral\Documents\GitHub\PJInventario\PJInventario\bin\EntityFramework
 C:\Users\jzamoral\Documents\GitHub\PJInventario\PJInventario\bin\EntityFramework.SqlServer.dll
 C:\Users\jzamoral\Documents\GitHub\PJInventario\PJInventario\bin\EntityFramework.xml
 C:\Users\jzamoral\Documents\GitHub\PJInventario\PJInventario\bin\EntityFramework.SqlServer.xml
+E:\Desarrollo\Proyectos\PJInventario\PJInventario\bin\EntityFramework.dll
+E:\Desarrollo\Proyectos\PJInventario\PJInventario\bin\EntityFramework.SqlServer.dll
+E:\Desarrollo\Proyectos\PJInventario\PJInventario\bin\EntityFramework.xml
+E:\Desarrollo\Proyectos\PJInventario\PJInventario\bin\EntityFramework.SqlServer.xml
