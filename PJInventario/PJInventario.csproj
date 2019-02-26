@@ -232,6 +232,7 @@
     <Content Include="Assets\Icons\icons8-menu-vertical-48.png" />
     <Content Include="Assets\Icons\icons8-print-48.png" />
     <Content Include="Assets\Icons\icons8-process-48.png" />
+    <Content Include="Assets\Icons\icons8-return-48.png" />
     <Content Include="Assets\Icons\icons8-save-48.png" />
     <Content Include="Assets\Icons\icons8-save-all-48.png" />
     <Content Include="Assets\Icons\icons8-save-close-48.png" />
@@ -2214,6 +2215,7 @@
     <Content Include="Views\Equipo\EquipoIndex.cshtml" />
     <Content Include="Views\Admin\DespachoIndex.cshtml" />
     <Content Include="Views\Admin\TipoEquipoIndex.cshtml" />
+    <Content Include="Views\Admin\DespachoEdita.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

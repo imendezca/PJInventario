@@ -19,21 +19,25 @@ namespace PJInventario.Controllers
         {
             return View();
         }
-        // GET: Despacho
-        public ActionResult DespachoIndex()
-        {
-            ViewBag.ListaDespacho = DespachoData.ListDespacho();
-            ViewBag.CodCircuito = DespachoData.ExtraeNombreCircuito();
-            return View (); 
-        }
-
         // GET: TipoEquipo
         public ActionResult TipoEquipoIndex()
         {
             ViewBag.ListaTipoEquipo = TipoEquipoData.ListTipoEquipo();
             return View();
         }
+
+
+        //
         //CÓDIGO DESPACHO
+        //
+        // GET: Despacho
+        public ActionResult DespachoIndex()
+        {
+            ViewBag.ListaDespacho = DespachoData.ListDespacho();
+            ViewBag.CodCircuito = DespachoData.ExtraeNombreCircuito();
+            return View();
+        }
+
         [HttpPost]
         public ActionResult CreaDespacho([Bind(Include = "CodDespacho,CodCircuito,NombreDespacho,CantTecJud,CantTecJur,CantCoordJud,CantJuezCoord,CantJuezTram,CantJueces,CantOtros")] Despacho despacho)
         {
@@ -62,5 +66,6 @@ namespace PJInventario.Controllers
         }
 
         //FIN CÓDIGO DESPACHO
+        //
     }
 }
