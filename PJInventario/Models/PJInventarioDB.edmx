@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PJInventario.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PJInventarioDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asignado">
           <Key>
             <PropertyRef Name="Equipo1" />
@@ -293,7 +293,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PJInventarioStoreContainer">
+        <Function Name="sp_Crea_Despacho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pCodDespacho" Type="varchar" Mode="In" />
+          <Parameter Name="pCodCircuito" Type="int" Mode="In" />
+          <Parameter Name="pNombreDespacho" Type="varchar" Mode="In" />
+          <Parameter Name="pCantTecJud" Type="int" Mode="In" />
+          <Parameter Name="pCantTecJur" Type="int" Mode="In" />
+          <Parameter Name="pCantCoordJud" Type="int" Mode="In" />
+          <Parameter Name="pCantJuezCoord" Type="int" Mode="In" />
+          <Parameter Name="pCantJuezTram" Type="int" Mode="In" />
+          <Parameter Name="pCantJueces" Type="int" Mode="In" />
+          <Parameter Name="pCantOtros" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Crea_TipoEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pTipoEquipoNombre" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="PJInventarioDBStoreContainer">
           <EntitySet Name="Asignado" EntityType="Self.Asignado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Circuito" EntityType="Self.Circuito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
@@ -361,7 +376,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PJInventario" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PJInventarioDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Circuito">
           <Key>
             <PropertyRef Name="CodCircuito" />
@@ -702,15 +717,30 @@
             <End Role="Equipo" EntitySet="Equipo" />
             <End Role="Equipo1" EntitySet="Equipo" />
           </AssociationSet>
+          <FunctionImport Name="sp_Crea_Despacho">
+            <Parameter Name="pCodDespacho" Mode="In" Type="String" />
+            <Parameter Name="pCodCircuito" Mode="In" Type="Int32" />
+            <Parameter Name="pNombreDespacho" Mode="In" Type="String" />
+            <Parameter Name="pCantTecJud" Mode="In" Type="Int32" />
+            <Parameter Name="pCantTecJur" Mode="In" Type="Int32" />
+            <Parameter Name="pCantCoordJud" Mode="In" Type="Int32" />
+            <Parameter Name="pCantJuezCoord" Mode="In" Type="Int32" />
+            <Parameter Name="pCantJuezTram" Mode="In" Type="Int32" />
+            <Parameter Name="pCantJueces" Mode="In" Type="Int32" />
+            <Parameter Name="pCantOtros" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Crea_TipoEquipo">
+            <Parameter Name="pTipoEquipoNombre" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PJInventarioStoreContainer" CdmEntityContainer="PJInventarioEntities">
+        <EntityContainerMapping StorageEntityContainer="PJInventarioDBStoreContainer" CdmEntityContainer="PJInventarioEntities">
           <EntitySetMapping Name="Circuito">
-            <EntityTypeMapping TypeName="PJInventario.Circuito">
+            <EntityTypeMapping TypeName="PJInventarioDB.Circuito">
               <MappingFragment StoreEntitySet="Circuito">
                 <ScalarProperty Name="CodCircuito" ColumnName="CodCircuito" />
                 <ScalarProperty Name="NombreCircuito" ColumnName="NombreCircuito" />
@@ -718,7 +748,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contrato">
-            <EntityTypeMapping TypeName="PJInventario.Contrato">
+            <EntityTypeMapping TypeName="PJInventarioDB.Contrato">
               <MappingFragment StoreEntitySet="Contrato">
                 <ScalarProperty Name="NumContrato" ColumnName="NumContrato" />
                 <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
@@ -728,7 +758,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Despacho">
-            <EntityTypeMapping TypeName="PJInventario.Despacho">
+            <EntityTypeMapping TypeName="PJInventarioDB.Despacho">
               <MappingFragment StoreEntitySet="Despacho">
                 <ScalarProperty Name="CodDespacho" ColumnName="CodDespacho" />
                 <ScalarProperty Name="CodCircuito" ColumnName="CodCircuito" />
@@ -744,7 +774,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Equipo">
-            <EntityTypeMapping TypeName="PJInventario.Equipo">
+            <EntityTypeMapping TypeName="PJInventarioDB.Equipo">
               <MappingFragment StoreEntitySet="Equipo">
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="NumSerie" ColumnName="NumSerie" />
@@ -765,7 +795,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Equipos_Permitidos">
-            <EntityTypeMapping TypeName="PJInventario.Equipos_Permitidos">
+            <EntityTypeMapping TypeName="PJInventarioDB.Equipos_Permitidos">
               <MappingFragment StoreEntitySet="Equipos_Permitidos">
                 <ScalarProperty Name="IDPermitido" ColumnName="IDPermitido" />
                 <ScalarProperty Name="TipoEquipo1" ColumnName="TipoEquipo1" />
@@ -774,7 +804,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Estado">
-            <EntityTypeMapping TypeName="PJInventario.Estado">
+            <EntityTypeMapping TypeName="PJInventarioDB.Estado">
               <MappingFragment StoreEntitySet="Estado">
                 <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
                 <ScalarProperty Name="NombreDeEstado" ColumnName="NombreDeEstado" />
@@ -782,7 +812,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Historico">
-            <EntityTypeMapping TypeName="PJInventario.Historico">
+            <EntityTypeMapping TypeName="PJInventarioDB.Historico">
               <MappingFragment StoreEntitySet="Historico">
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="NumSerie" ColumnName="NumSerie" />
@@ -803,7 +833,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LogModificacion">
-            <EntityTypeMapping TypeName="PJInventario.LogModificacion">
+            <EntityTypeMapping TypeName="PJInventarioDB.LogModificacion">
               <MappingFragment StoreEntitySet="LogModificacion">
                 <ScalarProperty Name="NumLog" ColumnName="NumLog" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -811,7 +841,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Puesto">
-            <EntityTypeMapping TypeName="PJInventario.Puesto">
+            <EntityTypeMapping TypeName="PJInventarioDB.Puesto">
               <MappingFragment StoreEntitySet="Puesto">
                 <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
                 <ScalarProperty Name="NombrePuesto" ColumnName="NombrePuesto" />
@@ -819,7 +849,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Puesto_Despacho">
-            <EntityTypeMapping TypeName="PJInventario.Puesto_Despacho">
+            <EntityTypeMapping TypeName="PJInventarioDB.Puesto_Despacho">
               <MappingFragment StoreEntitySet="Puesto_Despacho">
                 <ScalarProperty Name="CodDespacho" ColumnName="CodDespacho" />
                 <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
@@ -827,7 +857,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rol">
-            <EntityTypeMapping TypeName="PJInventario.Rol">
+            <EntityTypeMapping TypeName="PJInventarioDB.Rol">
               <MappingFragment StoreEntitySet="Rol">
                 <ScalarProperty Name="CodRol" ColumnName="CodRol" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -835,7 +865,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoEquipo">
-            <EntityTypeMapping TypeName="PJInventario.TipoEquipo">
+            <EntityTypeMapping TypeName="PJInventarioDB.TipoEquipo">
               <MappingFragment StoreEntitySet="TipoEquipo">
                 <ScalarProperty Name="IDTipoEquipo" ColumnName="IDTipoEquipo" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -843,7 +873,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="PJInventario.Usuario">
+            <EntityTypeMapping TypeName="PJInventarioDB.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
                 <ScalarProperty Name="CodRol" ColumnName="CodRol" />
@@ -855,7 +885,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Asignado" TypeName="PJInventario.Asignado" StoreEntitySet="Asignado">
+          <AssociationSetMapping Name="Asignado" TypeName="PJInventarioDB.Asignado" StoreEntitySet="Asignado">
             <EndProperty Name="Equipo">
               <ScalarProperty Name="Activo" ColumnName="Equipo1" />
             </EndProperty>
@@ -863,6 +893,8 @@
               <ScalarProperty Name="Activo" ColumnName="Equipo2" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Crea_Despacho" FunctionName="PJInventarioDB.Store.sp_Crea_Despacho" />
+          <FunctionImportMapping FunctionImportName="sp_Crea_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Crea_TipoEquipo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

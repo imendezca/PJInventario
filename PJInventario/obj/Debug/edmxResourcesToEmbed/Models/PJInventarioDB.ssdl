@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="PJInventario.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="PJInventarioDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Asignado">
     <Key>
       <PropertyRef Name="Equipo1" />
@@ -288,7 +288,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PJInventarioStoreContainer">
+  <Function Name="sp_Crea_Despacho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pCodDespacho" Type="varchar" Mode="In" />
+    <Parameter Name="pCodCircuito" Type="int" Mode="In" />
+    <Parameter Name="pNombreDespacho" Type="varchar" Mode="In" />
+    <Parameter Name="pCantTecJud" Type="int" Mode="In" />
+    <Parameter Name="pCantTecJur" Type="int" Mode="In" />
+    <Parameter Name="pCantCoordJud" Type="int" Mode="In" />
+    <Parameter Name="pCantJuezCoord" Type="int" Mode="In" />
+    <Parameter Name="pCantJuezTram" Type="int" Mode="In" />
+    <Parameter Name="pCantJueces" Type="int" Mode="In" />
+    <Parameter Name="pCantOtros" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Crea_TipoEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pTipoEquipoNombre" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PJInventarioDBStoreContainer">
     <EntitySet Name="Asignado" EntityType="Self.Asignado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Circuito" EntityType="Self.Circuito" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />

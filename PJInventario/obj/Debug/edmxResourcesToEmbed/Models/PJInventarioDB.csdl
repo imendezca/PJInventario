@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="PJInventario" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="PJInventarioDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Circuito">
     <Key>
       <PropertyRef Name="CodCircuito" />
@@ -340,5 +340,20 @@
       <End Role="Equipo" EntitySet="Equipo" />
       <End Role="Equipo1" EntitySet="Equipo" />
     </AssociationSet>
+    <FunctionImport Name="sp_Crea_Despacho">
+      <Parameter Name="pCodDespacho" Mode="In" Type="String" />
+      <Parameter Name="pCodCircuito" Mode="In" Type="Int32" />
+      <Parameter Name="pNombreDespacho" Mode="In" Type="String" />
+      <Parameter Name="pCantTecJud" Mode="In" Type="Int32" />
+      <Parameter Name="pCantTecJur" Mode="In" Type="Int32" />
+      <Parameter Name="pCantCoordJud" Mode="In" Type="Int32" />
+      <Parameter Name="pCantJuezCoord" Mode="In" Type="Int32" />
+      <Parameter Name="pCantJuezTram" Mode="In" Type="Int32" />
+      <Parameter Name="pCantJueces" Mode="In" Type="Int32" />
+      <Parameter Name="pCantOtros" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Crea_TipoEquipo">
+      <Parameter Name="pTipoEquipoNombre" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>
