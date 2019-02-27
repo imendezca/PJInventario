@@ -170,11 +170,11 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
-                                    <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                <a class="nav-link" style="font-size: x-small; font: bold;">
+                                    <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> @Html.ActionLink("Editar", "DespachoEdita", new { id = item.CodDespacho })
                                 </a>
-                                <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleDespacho", "Admin")">
-                                    <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                                <a class="nav-link" style="font-size: x-small; font: bold;">
+                                    <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png">@Html.ActionLink("Detalles", "Despacholle", new { id = item.CodDespacho })
                                 </a>
                             </div>
                         </td>

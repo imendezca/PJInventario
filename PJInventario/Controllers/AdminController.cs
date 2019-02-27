@@ -47,9 +47,9 @@ namespace PJInventario.Controllers
         //**********************************//
 
 
-        //
-        //CÓDIGO DESPACHO
-        //
+        //**********************************//
+        //      CÓDIGO DESPACHO             //
+        //**********************************//
         // GET: Despacho
         public ActionResult DespachoIndex()
         {
@@ -70,22 +70,25 @@ namespace PJInventario.Controllers
             return View(despacho);
         }
 
-        
-        public ActionResult EditaDespacho([Bind(Include ="CodDespacho")]Despacho despacho)
+
+        public ActionResult DespachoEdita(string id)
         {
-            if (despacho.CodDespacho==null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           
+             var despacho=DespachoData.solicitaEdicion(id);
+       
             if (despacho == null)
             {
                 return HttpNotFound();
-            }            
-            return View(DespachoData.solicitaEdicion(despacho.CodDespacho));
+            }
+            ViewBag.CodCircuito = DespachoData.ExtraeNombreCircuito();
+            return View(despacho);
         }
 
-        //FIN CÓDIGO DESPACHO
-        //
+        //**********************************//
+        //    TERMINA CÓDIGO DESPACHO       //
+        //**********************************//
     }
 }
