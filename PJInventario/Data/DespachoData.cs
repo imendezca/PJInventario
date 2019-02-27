@@ -12,12 +12,16 @@ namespace PJInventario.Data
 {
     public class DespachoData
     {
-        static PJInventarioEntities db = new PJInventarioEntities();
+       static PJInventarioEntities db = new PJInventarioEntities();
 
         public static List<Despacho> ListDespacho()
         {
-            var despacho = db.Despacho.Include(d => d.Circuito);
-            return despacho.ToList();
+            using (PJInventarioEntities database = new PJInventarioEntities())
+            {
+                var despacho = database.Despacho.Include(d => d.Circuito);
+                return despacho.ToList();
+            } 
+           
         }
 
         public static SelectList ExtraeNombreCircuito()
