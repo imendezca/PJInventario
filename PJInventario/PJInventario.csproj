@@ -137,6 +137,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\ContratoData.cs" />
     <Compile Include="Data\DespachoData.cs" />
     <Compile Include="Data\TipoEquipoData.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,6 +206,7 @@
     <Content Include="Assets\fonts\nucleo\nucleo-icons.svg" />
     <Content Include="Assets\Icons\icons8-add-48.png" />
     <Content Include="Assets\Icons\icons8-adjust-48.png" />
+    <Content Include="Assets\Icons\icons8-agreement-48.png" />
     <Content Include="Assets\Icons\icons8-approval-48.png" />
     <Content Include="Assets\Icons\icons8-calendar-48.png" />
     <Content Include="Assets\Icons\icons8-checkmark-48.png" />
@@ -2217,6 +2219,7 @@
     <Content Include="Views\Admin\TipoEquipoIndex.cshtml" />
     <Content Include="Views\Admin\DespachoEdita.cshtml" />
     <Content Include="Views\Admin\TipoEquipoEdita.cshtml" />
+    <Content Include="Views\Admin\ContratoIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

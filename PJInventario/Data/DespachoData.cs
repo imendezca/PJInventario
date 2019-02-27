@@ -37,10 +37,18 @@ namespace PJInventario.Data
             return despacho;                       
         }
 
-        public static Despacho solicitaEdicion(string id)
+        public static Despacho traerDespacho(string id)
         {
-            Despacho despacho = db.Despacho.Find(id);
-            return (despacho);
+            using (PJInventarioEntities database = new PJInventarioEntities())
+            {
+                Despacho despacho = database.Despacho.Find(id);
+                return (despacho);
+            }
+        }
+
+        public static void modificaDespacho(Despacho despachoNuevo)
+        {
+            db.sp_Edita_Despacho(despachoNuevo.CodDespacho,despachoNuevo.CodCircuito,despachoNuevo.NombreDespacho,despachoNuevo.CantTecJud,despachoNuevo.CantTecJur,despachoNuevo.CantCoordJud,despachoNuevo.CantJuezCoord,despachoNuevo.CantJuezTram,despachoNuevo.CantJueces,despachoNuevo.CantOtros);
         }
     }
 }

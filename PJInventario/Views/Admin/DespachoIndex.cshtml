@@ -29,12 +29,12 @@
                                     {
                                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CodDespacho, new { htmlAttributes = new { @class = "form-control", placeholder = "Código de despacho" } })
+                                            @Html.EditorFor(model => model.CodDespacho, new { htmlAttributes = new { @class = "form-control", placeholder = "Código de despacho", @maxlenght = "4" } })
                                             @Html.ValidationMessageFor(model => model.CodDespacho, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.DropDownList("CodCircuito", null, htmlAttributes: new { @class = "form-control", placeholder = "Código Circuito" })
+                                            @Html.DropDownList("CodCircuito", null, htmlAttributes: new { @class = "form-control", placeholder = "Código Circuito", @maxlenght = "3" })
                                             @Html.ValidationMessageFor(model => model.CodCircuito, "", new { @class = "text-danger" })
                                         </div>
 
@@ -44,37 +44,37 @@
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantTecJud, new { htmlAttributes = new { @class = "form-control", placeholder = "Técnicos Judiciales" } })
+                                            @Html.EditorFor(model => model.CantTecJud, new { htmlAttributes = new { @class = "form-control", placeholder = "Técnicos Judiciales", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantTecJud, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantTecJur, new { htmlAttributes = new { @class = "form-control", placeholder = "Técnicos Juridicos" } })
+                                            @Html.EditorFor(model => model.CantTecJur, new { htmlAttributes = new { @class = "form-control", placeholder = "Técnicos Juridicos", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantTecJur, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantCoordJud, new { htmlAttributes = new { @class = "form-control", placeholder = "Coordinadores Judiciales" } })
+                                            @Html.EditorFor(model => model.CantCoordJud, new { htmlAttributes = new { @class = "form-control", placeholder = "Coordinadores Judiciales", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantCoordJud, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantJuezCoord, new { htmlAttributes = new { @class = "form-control", placeholder = "Jueces Coordinadores" } })
+                                            @Html.EditorFor(model => model.CantJuezCoord, new { htmlAttributes = new { @class = "form-control", placeholder = "Jueces Coordinadores", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantJuezCoord, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantJuezTram, new { htmlAttributes = new { @class = "form-control", placeholder = "Jueces Tramitadores" } })
+                                            @Html.EditorFor(model => model.CantJuezTram, new { htmlAttributes = new { @class = "form-control", placeholder = "Jueces Tramitadores", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantJuezTram, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantJueces, new { htmlAttributes = new { @class = "form-control", placeholder = "Jueces/Fiscales" } })
+                                            @Html.EditorFor(model => model.CantJueces, new { htmlAttributes = new { @class = "form-control", placeholder = "Jueces/Fiscales", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantJueces, "", new { @class = "text-danger" })
                                         </div>
 
                                         <div class="form-group col-8">
-                                            @Html.EditorFor(model => model.CantOtros, new { htmlAttributes = new { @class = "form-control", placeholder = "Otros Profesionales" } })
+                                            @Html.EditorFor(model => model.CantOtros, new { htmlAttributes = new { @class = "form-control", placeholder = "Otros Profesionales", @maxlenght = "3" } })
                                             @Html.ValidationMessageFor(model => model.CantOtros, "", new { @class = "text-danger" })
                                         </div>
 
@@ -135,7 +135,7 @@
                 </tr>
             </thead>
             <tbody>
-                @{
+                @{  
                 string btnDetalles = "";
                 string mdlDetalles = "";
                 foreach (var item in @ViewBag.ListaDespacho)
@@ -211,7 +211,7 @@
                                             <label>Otros Profesionales: @item.CantOtros </label>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cerrar </button>
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +220,7 @@
                     </td>
                 </tr>
                 }
-                }
+            }
             </tbody>
         </table>
     </div>

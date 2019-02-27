@@ -14,8 +14,7 @@ namespace PJInventario.Data
         {
             using(PJInventarioEntities database = new PJInventarioEntities())
             {
-                var listaTipoEquipo = from valor in database.TipoEquipo
-                                      select valor;
+                var listaTipoEquipo = database.TipoEquipo;
                 return listaTipoEquipo.ToList();
             }
         }

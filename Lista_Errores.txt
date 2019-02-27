@@ -1,0 +1,1 @@
+-51000: error que se muestra cuando se ingresa una fecha final mayor a una fecha inicial en el sp_Crea_Contrato.

@@ -99,7 +99,7 @@ namespace PJInventario.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-             var despacho=DespachoData.solicitaEdicion(id);
+             var despacho=DespachoData.traerDespacho(id);
        
             if (despacho == null)
             {
@@ -109,8 +109,47 @@ namespace PJInventario.Controllers
             return View(despacho);
         }
 
+        [HttpPost]
+        public ActionResult EditarDespacho(Despacho despacho)
+        {
+            if (ModelState.IsValid)
+            {
+                DespachoData.modificaDespacho(despacho);
+            }
+            ViewBag.CodCircuito = DespachoData.ExtraeNombreCircuito();
+            ViewBag.ListaDespacho = DespachoData.ListDespacho();
+            return View("DespachoIndex");
+        }
+
+
         //**********************************//
         //    TERMINA CÓDIGO DESPACHO       //
         //**********************************//
+
+        //**********************************//
+        //      CÓDIGO CONTRATO             //
+        //**********************************//
+
+        public ActionResult ContratoIndex()
+        {
+            ViewBag.ListaContrato = ContratoData.ListContrato();        
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult CreaContrato([Bind(Include = "NumContrato,FechaInicio,FechaFinal,NombreEmpresa")] Despacho despacho)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ContratoData.CreaContrato();
+        //        return RedirectToAction("ContratoIndex");
+        //    }
+            
+        //    return View(despacho);
+        //}
+
+        //**********************************//
+        //    TERMINA CÓDIGO CONTRATO       //
+        //**********************************//        
     }
 }
