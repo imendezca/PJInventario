@@ -77,8 +77,8 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <button class="btn" style="font-size: x-small; font: bold;" href="@Url.Action("EditaDespacho", "Admin")">
-                                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                        <button class="btn" style="font-size: x-small; font: bold;">
+                                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> @Html.ActionLink("Editar", "TipoEquipoEdita", new { idTipoEquipo = item.IDTipoEquipo })
                                         </button>
                                         <button class="btn" style="font-size: x-small; font: bold;" data-toggle="modal" data-target="#@mdlDetalles">
                                             <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles

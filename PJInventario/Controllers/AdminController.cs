@@ -32,13 +32,35 @@ namespace PJInventario.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreaTipoEquipo(TipoEquipo despacho)
+        public ActionResult CreaTipoEquipo(TipoEquipo nuevoTipoEquipo)
         {
             if (ModelState.IsValid)
             {
-                TipoEquipoData.agregaTipoEquipo(despacho);
+                TipoEquipoData.agregaTipoEquipo(nuevoTipoEquipo);
                 return RedirectToAction("TipoEquipoIndex");
             }
+            return View("TipoEquipoIndex");
+        }
+
+        public ActionResult TipoEquipoEdita(string idTipoEquipo)
+        {
+
+            TipoEquipo tipoEquipo = TipoEquipoData.traerTipoEquipo(int.Parse(idTipoEquipo));
+            if (tipoEquipo == null)
+            {
+                HttpNotFound();
+            }
+            return View(tipoEquipo);
+        }
+
+        [HttpPost]
+        public ActionResult EditarTipoEquipo(TipoEquipo tipoEquipo)
+        {
+            if (ModelState.IsValid)
+            {
+                TipoEquipoData.modificaTipoEquipo (tipoEquipo);
+            }
+            ViewBag.ListaTipoEquipo = TipoEquipoData.ListTipoEquipo();
             return View("TipoEquipoIndex");
         }
 

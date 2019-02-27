@@ -94,5 +94,63 @@ namespace PJInventario.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Crea_TipoEquipo", pTipoEquipoNombreParameter);
         }
+    
+        public virtual int sp_Edita_TipoEquipo(Nullable<int> iDTipoEquipo, string nombre)
+        {
+            var iDTipoEquipoParameter = iDTipoEquipo.HasValue ?
+                new ObjectParameter("IDTipoEquipo", iDTipoEquipo) :
+                new ObjectParameter("IDTipoEquipo", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Edita_TipoEquipo", iDTipoEquipoParameter, nombreParameter);
+        }
+    
+        public virtual int sp_Edita_Despacho(string pCodDespacho, Nullable<int> pCodCircuito, string pNombreDespacho, Nullable<int> pCantTecJud, Nullable<int> pCantTecJur, Nullable<int> pCantCoordJud, Nullable<int> pCantJuezCoord, Nullable<int> pCantJuezTram, Nullable<int> pCantJueces, Nullable<int> pCantOtros)
+        {
+            var pCodDespachoParameter = pCodDespacho != null ?
+                new ObjectParameter("pCodDespacho", pCodDespacho) :
+                new ObjectParameter("pCodDespacho", typeof(string));
+    
+            var pCodCircuitoParameter = pCodCircuito.HasValue ?
+                new ObjectParameter("pCodCircuito", pCodCircuito) :
+                new ObjectParameter("pCodCircuito", typeof(int));
+    
+            var pNombreDespachoParameter = pNombreDespacho != null ?
+                new ObjectParameter("pNombreDespacho", pNombreDespacho) :
+                new ObjectParameter("pNombreDespacho", typeof(string));
+    
+            var pCantTecJudParameter = pCantTecJud.HasValue ?
+                new ObjectParameter("pCantTecJud", pCantTecJud) :
+                new ObjectParameter("pCantTecJud", typeof(int));
+    
+            var pCantTecJurParameter = pCantTecJur.HasValue ?
+                new ObjectParameter("pCantTecJur", pCantTecJur) :
+                new ObjectParameter("pCantTecJur", typeof(int));
+    
+            var pCantCoordJudParameter = pCantCoordJud.HasValue ?
+                new ObjectParameter("pCantCoordJud", pCantCoordJud) :
+                new ObjectParameter("pCantCoordJud", typeof(int));
+    
+            var pCantJuezCoordParameter = pCantJuezCoord.HasValue ?
+                new ObjectParameter("pCantJuezCoord", pCantJuezCoord) :
+                new ObjectParameter("pCantJuezCoord", typeof(int));
+    
+            var pCantJuezTramParameter = pCantJuezTram.HasValue ?
+                new ObjectParameter("pCantJuezTram", pCantJuezTram) :
+                new ObjectParameter("pCantJuezTram", typeof(int));
+    
+            var pCantJuecesParameter = pCantJueces.HasValue ?
+                new ObjectParameter("pCantJueces", pCantJueces) :
+                new ObjectParameter("pCantJueces", typeof(int));
+    
+            var pCantOtrosParameter = pCantOtros.HasValue ?
+                new ObjectParameter("pCantOtros", pCantOtros) :
+                new ObjectParameter("pCantOtros", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Edita_Despacho", pCodDespachoParameter, pCodCircuitoParameter, pNombreDespachoParameter, pCantTecJudParameter, pCantTecJurParameter, pCantCoordJudParameter, pCantJuezCoordParameter, pCantJuezTramParameter, pCantJuecesParameter, pCantOtrosParameter);
+        }
     }
 }

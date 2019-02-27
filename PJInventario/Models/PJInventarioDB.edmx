@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PJInventarioDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PJInventarioDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asignado">
           <Key>
             <PropertyRef Name="Equipo1" />
@@ -308,6 +308,22 @@
         <Function Name="sp_Crea_TipoEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pTipoEquipoNombre" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_Edita_Despacho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pCodDespacho" Type="varchar" Mode="In" />
+          <Parameter Name="pCodCircuito" Type="int" Mode="In" />
+          <Parameter Name="pNombreDespacho" Type="varchar" Mode="In" />
+          <Parameter Name="pCantTecJud" Type="int" Mode="In" />
+          <Parameter Name="pCantTecJur" Type="int" Mode="In" />
+          <Parameter Name="pCantCoordJud" Type="int" Mode="In" />
+          <Parameter Name="pCantJuezCoord" Type="int" Mode="In" />
+          <Parameter Name="pCantJuezTram" Type="int" Mode="In" />
+          <Parameter Name="pCantJueces" Type="int" Mode="In" />
+          <Parameter Name="pCantOtros" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Edita_TipoEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDTipoEquipo" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="PJInventarioDBStoreContainer">
           <EntitySet Name="Asignado" EntityType="Self.Asignado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Circuito" EntityType="Self.Circuito" Schema="dbo" store:Type="Tables" />
@@ -372,8 +388,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PJInventarioDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -730,7 +745,23 @@
             <Parameter Name="pCantOtros" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Crea_TipoEquipo">
-            <Parameter Name="pTipoEquipoNombre" Mode="In" Type="String" />
+          <Parameter Name="pTipoEquipoNombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Edita_TipoEquipo">
+            <Parameter Name="IDTipoEquipo" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Edita_Despacho">
+            <Parameter Name="pCodDespacho" Mode="In" Type="String" />
+            <Parameter Name="pCodCircuito" Mode="In" Type="Int32" />
+            <Parameter Name="pNombreDespacho" Mode="In" Type="String" />
+            <Parameter Name="pCantTecJud" Mode="In" Type="Int32" />
+            <Parameter Name="pCantTecJur" Mode="In" Type="Int32" />
+            <Parameter Name="pCantCoordJud" Mode="In" Type="Int32" />
+            <Parameter Name="pCantJuezCoord" Mode="In" Type="Int32" />
+            <Parameter Name="pCantJuezTram" Mode="In" Type="Int32" />
+            <Parameter Name="pCantJueces" Mode="In" Type="Int32" />
+            <Parameter Name="pCantOtros" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
       </Schema>
@@ -895,6 +926,8 @@
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="sp_Crea_Despacho" FunctionName="PJInventarioDB.Store.sp_Crea_Despacho" />
           <FunctionImportMapping FunctionImportName="sp_Crea_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Crea_TipoEquipo" />
+          <FunctionImportMapping FunctionImportName="sp_Edita_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Edita_TipoEquipo" />
+          <FunctionImportMapping FunctionImportName="sp_Edita_Despacho" FunctionName="PJInventarioDB.Store.sp_Edita_Despacho" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
