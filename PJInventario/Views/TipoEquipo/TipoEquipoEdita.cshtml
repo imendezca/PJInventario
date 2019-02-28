@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("EditarTipoEquipo", "Admin"))
+@using (Html.BeginForm("EditarTipoEquipo", "TipoEquipo"))
 {
     <div class="form-horizontal">
         <h2>Editar @Model.Nombre</h2>
@@ -27,7 +27,7 @@
 
 <div>
     <div class="btn-group">
-        <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("TipoEquipoIndex", "Admin")">
+        <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("TipoEquipoIndex", "TipoEquipo")">
             <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-return-48.png"> Regresar
         </a>
     </div>

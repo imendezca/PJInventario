@@ -293,6 +293,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_Crea_Contrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pNumContrato" Type="int" Mode="In" />
+          <Parameter Name="pFechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="pFechaFinal" Type="datetime" Mode="In" />
+          <Parameter Name="pNombreEmpresa" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_Crea_Despacho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pCodDespacho" Type="varchar" Mode="In" />
           <Parameter Name="pCodCircuito" Type="int" Mode="In" />
@@ -763,6 +769,12 @@
             <Parameter Name="pCantJueces" Mode="In" Type="Int32" />
             <Parameter Name="pCantOtros" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="sp_Crea_Contrato">
+            <Parameter Name="pNumContrato" Mode="In" Type="Int32" />
+            <Parameter Name="pFechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="pFechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="pNombreEmpresa" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -928,6 +940,7 @@
           <FunctionImportMapping FunctionImportName="sp_Crea_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Crea_TipoEquipo" />
           <FunctionImportMapping FunctionImportName="sp_Edita_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Edita_TipoEquipo" />
           <FunctionImportMapping FunctionImportName="sp_Edita_Despacho" FunctionName="PJInventarioDB.Store.sp_Edita_Despacho" />
+          <FunctionImportMapping FunctionImportName="sp_Crea_Contrato" FunctionName="PJInventarioDB.Store.sp_Crea_Contrato" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

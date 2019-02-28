@@ -37,7 +37,7 @@ namespace PJInventario.Data
             return despacho;                       
         }
 
-        public static Despacho traerDespacho(string id)
+        public static Despacho TraerDespacho(string id)
         {
             using (PJInventarioEntities database = new PJInventarioEntities())
             {
@@ -46,7 +46,7 @@ namespace PJInventario.Data
             }
         }
 
-        public static void modificaDespacho(Despacho despachoNuevo)
+        public static void ModificaDespacho(Despacho despachoNuevo)
         {
             db.sp_Edita_Despacho(despachoNuevo.CodDespacho,despachoNuevo.CodCircuito,despachoNuevo.NombreDespacho,despachoNuevo.CantTecJud,despachoNuevo.CantTecJur,despachoNuevo.CantCoordJud,despachoNuevo.CantJuezCoord,despachoNuevo.CantJuezTram,despachoNuevo.CantJueces,despachoNuevo.CantOtros);
         }

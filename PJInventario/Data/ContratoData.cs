@@ -22,9 +22,10 @@ namespace PJInventario.Data
             }
         }
 
-        //public static Despacho CreaContrato(Contrato contrato)
-        //{
-        //    return contrato;
-        //}
+        public static Contrato CreaContrato(Contrato contrato)
+        {
+            db.sp_Crea_Contrato(contrato.NumContrato, contrato.FechaInicio, contrato.FechaFinal, contrato.NombreEmpresa);
+            return contrato;
+        }
     }
 }

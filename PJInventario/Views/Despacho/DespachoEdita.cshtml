@@ -7,7 +7,7 @@
 <h2>Editar Despacho</h2>
 
 
-@using (Html.BeginForm("EditarDespacho","Admin"))
+@using (Html.BeginForm("EditarDespacho","Despacho"))
 {
     @Html.AntiForgeryToken()
 
@@ -99,7 +99,7 @@
 
     <div>
         <div class="btn-group">
-            <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DespachoIndex", "Admin")">
+            <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DespachoIndex", "Despacho")">
                 <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-return-48.png"> Regresar
             </a>  
         </div>

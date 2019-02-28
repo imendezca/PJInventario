@@ -135,8 +135,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContratoController.cs" />
+    <Compile Include="Controllers\DespachoController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoEquipoController.cs" />
     <Compile Include="Data\ContratoData.cs" />
     <Compile Include="Data\DespachoData.cs" />
     <Compile Include="Data\TipoEquipoData.cs" />
@@ -2215,11 +2218,11 @@
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
     <Content Include="Views\Equipo\EquipoIndex.cshtml" />
-    <Content Include="Views\Admin\DespachoIndex.cshtml" />
-    <Content Include="Views\Admin\TipoEquipoIndex.cshtml" />
-    <Content Include="Views\Admin\DespachoEdita.cshtml" />
-    <Content Include="Views\Admin\TipoEquipoEdita.cshtml" />
-    <Content Include="Views\Admin\ContratoIndex.cshtml" />
+    <Content Include="Views\Despacho\DespachoIndex.cshtml" />
+    <Content Include="Views\TipoEquipo\TipoEquipoIndex.cshtml" />
+    <Content Include="Views\Despacho\DespachoEdita.cshtml" />
+    <Content Include="Views\TipoEquipo\TipoEquipoEdita.cshtml" />
+    <Content Include="Views\Contrato\ContratoIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
