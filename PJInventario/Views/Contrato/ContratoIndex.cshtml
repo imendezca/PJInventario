@@ -40,13 +40,23 @@
 
                                 
                                 <div class="form-group col-8">
-                                    @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha de Inicio", @maxlenght = "3" } })
-                                    @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control dp-app", @readonly = "True", placeholder = "Fecha de Inicio", @maxlenght = "3", @style = "background-color: white" } })
+                                        @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
 
                                 <div class="form-group col-8">
-                                    @Html.EditorFor(model => model.FechaFinal, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha de Finalización", @maxlenght = "3" } })
-                                    @Html.ValidationMessageFor(model => model.FechaFinal, "", new { @class = "text-danger" })
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        @Html.EditorFor(model => model.FechaFinal, new { htmlAttributes = new { @class = "form-control dp-app", @readonly="True", placeholder = "Fecha de Finalización", @maxlenght = "3", @style="background-color: white" } })
+                                        @Html.ValidationMessageFor(model => model.FechaFinal, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -123,11 +133,4 @@
         <h1>No hay contratos que mostrar</h1>
     }
 }
-        <div class="form-group">
-            <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                </div>
-                <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2018">
-            </div>
-        </div>
+ 

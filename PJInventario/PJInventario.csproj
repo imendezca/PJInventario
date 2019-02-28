@@ -205,6 +205,14 @@
   <ItemGroup>
     <Content Include="Assets\css\argon.css" />
     <Content Include="Assets\css\argon.min.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.min.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.standalone.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.min.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Assets\css\Google-font-face.css" />
     <Content Include="Assets\fonts\nucleo\nucleo-icons.svg" />
     <Content Include="Assets\Icons\icons8-add-48.png" />
@@ -267,8 +275,12 @@
     <Content Include="Assets\img\theme\team-3-800x800.jpg" />
     <Content Include="Assets\img\theme\team-4-800x800.jpg" />
     <Content Include="Assets\img\theme\vue.jpg" />
+    <Content Include="Assets\js\app.js" />
     <Content Include="Assets\js\argon.js" />
     <Content Include="Assets\js\argon.min.js" />
+    <Content Include="Assets\js\bootstrap-datepicker.js" />
+    <Content Include="Assets\js\bootstrap-datepicker.min.js" />
+    <Content Include="Assets\js\jquery-3.1.1.min.js" />
     <Content Include="Assets\vendor\%40fortawesome\fontawesome-free\css\all.min.css" />
     <Content Include="Assets\vendor\%40fortawesome\fontawesome-free\css\brands.min.css" />
     <Content Include="Assets\vendor\%40fortawesome\fontawesome-free\css\fontawesome.min.css" />
@@ -2187,6 +2199,14 @@
     <Content Include="Models\PJInventarioDB.edmx.diagram">
       <DependentUpon>PJInventarioDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.min.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.min.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Assets\css\datepicker\bootstrap-datepicker3.standalone.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
