@@ -22,6 +22,17 @@ namespace PJInventario.Controllers
             return View();
         }
 
+        public ActionResult ContratoEdita(string numContrato)
+        {
+
+            Contrato contrato = ContratoData.traerContrato(int.Parse(numContrato));
+            if (contrato == null)
+            {
+                HttpNotFound();
+            }
+            return View(contrato);
+        }
+
         [HttpPost]
         public ActionResult CreaContrato([Bind(Include = "NumContrato,FechaInicio,FechaFinal,NombreEmpresa")] Contrato contrato)
         {
@@ -32,6 +43,16 @@ namespace PJInventario.Controllers
             }
 
             return View(contrato);
+        }
+
+        [HttpPost]
+        public ActionResult EditarContrato(Contrato contrato)
+        {
+            if (ModelState.IsValid)
+            {
+                ContratoData.EditaContrato(contrato);
+            }
+            return RedirectToAction("ContratoIndex");
         }
 
         //**********************************//

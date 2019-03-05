@@ -22,10 +22,31 @@ namespace PJInventario.Data
             }
         }
 
+        public static Contrato traerContrato(int numContrato)
+        {
+            using (PJInventarioEntities database = new PJInventarioEntities())
+            {
+                Contrato econtratoARetornar = database.Contrato.Find(numContrato);
+                return econtratoARetornar;
+            }
+        }
+
         public static Contrato CreaContrato(Contrato contrato)
         {
             db.sp_Crea_Contrato(contrato.NumContrato, contrato.FechaInicio, contrato.FechaFinal, contrato.NombreEmpresa);
             return contrato;
+        }
+
+        public static void EditaContrato(Contrato contrato)
+        {
+            try
+            {
+                db.sp_Edita_Contrato(contrato.NumContrato, contrato.FechaInicio, contrato.FechaFinal, contrato.NombreEmpresa);
+            }
+            catch(Exception ex)
+            {
+                SqlException sqlex = ex.InnerException as SqlException;
+            }
         }
     }
 }

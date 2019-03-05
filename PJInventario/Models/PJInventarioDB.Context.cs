@@ -173,5 +173,26 @@ namespace PJInventario.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Crea_Contrato", pNumContratoParameter, pFechaInicioParameter, pFechaFinalParameter, pNombreEmpresaParameter);
         }
+    
+        public virtual int sp_Edita_Contrato(Nullable<int> pNumContrato, Nullable<System.DateTime> pFechaInicio, Nullable<System.DateTime> pFechaFinal, string pNombreEmpresa)
+        {
+            var pNumContratoParameter = pNumContrato.HasValue ?
+                new ObjectParameter("pNumContrato", pNumContrato) :
+                new ObjectParameter("pNumContrato", typeof(int));
+    
+            var pFechaInicioParameter = pFechaInicio.HasValue ?
+                new ObjectParameter("pFechaInicio", pFechaInicio) :
+                new ObjectParameter("pFechaInicio", typeof(System.DateTime));
+    
+            var pFechaFinalParameter = pFechaFinal.HasValue ?
+                new ObjectParameter("pFechaFinal", pFechaFinal) :
+                new ObjectParameter("pFechaFinal", typeof(System.DateTime));
+    
+            var pNombreEmpresaParameter = pNombreEmpresa != null ?
+                new ObjectParameter("pNombreEmpresa", pNombreEmpresa) :
+                new ObjectParameter("pNombreEmpresa", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Edita_Contrato", pNumContratoParameter, pFechaInicioParameter, pFechaFinalParameter, pNombreEmpresaParameter);
+        }
     }
 }

@@ -2243,6 +2243,7 @@
     <Content Include="Views\Despacho\DespachoEdita.cshtml" />
     <Content Include="Views\TipoEquipo\TipoEquipoEdita.cshtml" />
     <Content Include="Views\Contrato\ContratoIndex.cshtml" />
+    <Content Include="Views\Contrato\ContratoEdita.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
