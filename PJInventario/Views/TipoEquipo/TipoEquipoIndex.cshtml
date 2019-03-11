@@ -1,0 +1,122 @@
+﻿@model PJInventario.Models.TipoEquipo
+@{
+    ViewBag.Title = "TipoEquipoIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tipos de equipo</h2>
+<hr/>
+<div class="row mb-3">
+    <div class="col-12">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingCrearCollapse">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#crearCollapse" aria-expanded="false" aria-controls="crearCollapse">
+                            <img src="~/Assets/Icons/icons8-add-48.png">
+                            Agregar nuevo tipo de equipo
+                        </button>
+                    </h5>
+                </div>
+                <div id="crearCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-10">
+                                @using (Html.BeginForm("CreaTipoEquipo", "TipoEquipo"))
+                                {
+                                    <div class="form-group">
+                                        <div class="col">
+                                            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "Descripción del equipo", @value="" } })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col" align="right">
+                                            <input type="submit" value="Crear" class="btn btn-success" />
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    if (@ViewBag.ListaTipoEquipo.Count != 0)
+    {
+        <div class="table table-responsive table-striped">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="font-size:large; color:white" class="text-center">
+                            Código indentificador
+                        </th>
+                        <th style="font-size:large; color:white" class="text-center">
+                            Descripción del equipo
+                        </th>
+                        <th>-</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        string btnDetalles = "";
+                        string mdlDetalles = "";
+                        foreach (var item in @ViewBag.ListaTipoEquipo)
+                        {
+                            btnDetalles = "btnDetalles_" + item.IDTipoEquipo;
+                            mdlDetalles = "mdlDetalles_" + item.IDTipoEquipo;
+                            <tr>
+                                <td>
+                                    @item.IDTipoEquipo
+                                </td>
+                                <td>
+                                    @item.Nombre
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        @using (Html.BeginForm("TipoEquipoEdita", "TipoEquipo", new { idTipoEquipo = item.IDTipoEquipo }))
+                                        {
+                                            <button type="submit" class="btn" style="font-size: x-small; font: bold;">
+                                                <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                            </button>
+                                        }
+                                        <button class="btn" style="font-size: x-small; font: bold;" data-toggle="modal" data-target="#@mdlDetalles">
+                                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                                        </button>
+                                        <div class="modal fade" id="@mdlDetalles" tabindex="-1" role="dialog" aria-labelledby="fm-modal2" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-secondary">
+                                                        <h5 class="modal-title text-black-50 text-center">Detalles</h5>
+                                                        <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h1>No hay tipos de equipos que mostrar</h1>
+    }
+}
+
+

@@ -1,0 +1,139 @@
+﻿@model PJInventario.Models.Contrato
+
+@{
+    ViewBag.Title = "Contrato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contrato</h2>
+
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingCrearCollapse">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#crearCollapse" aria-expanded="false" aria-controls="crearCollapse">
+                            <img src="~/Assets/Icons/icons8-add-48.png">
+                            Agregar Contrato
+                        </button>
+                    </h5>
+                </div>
+                <div id="crearCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div class="form-horizontal">
+                            @using (Html.BeginForm("CreaContrato", "Contrato"))
+                            {
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group col-8">
+                                    @Html.EditorFor(model => model.NumContrato, new { htmlAttributes = new { @class = "form-control", placeholder = "Número Contrato", @maxlenght = "4" } })
+                                    @Html.ValidationMessageFor(model => model.NumContrato, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-8">
+                                    @Html.EditorFor(model => model.NombreEmpresa, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre de la Empresa", @maxlenght = "3" } })
+                                    @Html.ValidationMessageFor(model => model.NombreEmpresa, "", new { @class = "text-danger" })
+                                </div>
+
+                                
+                                <div class="form-group col-8">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control dp-app", @readonly = "True", placeholder = "Fecha de Inicio", @maxlenght = "3", @style = "background-color: white" } })
+                                        @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-8">
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        @Html.EditorFor(model => model.FechaFinal, new { htmlAttributes = new { @class = "form-control dp-app", @readonly="True", placeholder = "Fecha de Finalización", @maxlenght = "3", @style="background-color: white" } })
+                                        @Html.ValidationMessageFor(model => model.FechaFinal, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Crear" class="btn btn-success" />
+                                    </div>
+                                </div>
+                            }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    if (@ViewBag.ListaContrato.Count != 0)
+    {
+        <div class="table-responsive table-striped">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            Número de Contrato
+                        </th>
+                        <th>
+                            Nombre de Empresa
+                        </th>
+                        <th>
+                            Fecha Inicio
+                        </th>
+                        <th>
+                            Fecha Final
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.ListaContrato)
+                    { 
+                    <tr>
+                        <td>
+                            @item.NumContrato
+                        </td>
+                        <td>
+                            @item.NombreEmpresa
+                        </td>
+                        <td>
+                            @item.FechaInicio.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.FechaFinal.ToString("dd/MM/yyyy")
+                        </td>
+
+                        <td>
+                            <div class="btn-group">
+                                @using (Html.BeginForm("ContratoEdita", "Contrato", new { numContrato = item.NumContrato }))
+                                {
+                                    <button class="btn" type="submit">
+                                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                    </button>
+                                }
+                                </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h1>No hay contratos que mostrar</h1>
+    }
+}
+ 

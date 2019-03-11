@@ -1,0 +1,102 @@
+﻿@model IEnumerable<PJInventario.Models.Equipo>
+@{
+    ViewBag.Title = "Equipo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Equipo</h2>
+
+<p>
+    <a class="nav-link" style="font-size: small" href="@Url.Action("CreaEquipo", "Equipo")">
+        <img src="~/Assets/Icons/icons8-add-48.png"> Nuevo Equipo
+    </a>
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered ">
+        <tr>
+            <th>
+                Número de Serie
+            </th>
+            <th>
+                Marca
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Alquilado
+            </th>
+            <th>
+                Fecha de Ingreso
+            </th>
+            <th>
+                Contrato
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Puesto
+            </th>
+            <th>
+                Tipo de Equipo
+            </th>
+            <th>
+                -
+            </th>
+        </tr>
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumSerie)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alquilado)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contrato.NombreEmpresa)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado.NombreDeEstado)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Puesto_Despacho.IDPuesto)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoEquipo.Nombre)
+
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("EditaEquipo", "Equipo")">
+                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                        </a>
+                        <a class="nav-link" style="font-size: x-small; font: bold;" href="@Url.Action("DetalleEquipo", "Equipo")">
+                            <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
