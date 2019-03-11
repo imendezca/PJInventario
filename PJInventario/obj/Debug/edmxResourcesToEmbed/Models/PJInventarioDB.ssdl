@@ -288,6 +288,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_Crea_Contrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pNumContrato" Type="int" Mode="In" />
+    <Parameter Name="pFechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="pFechaFinal" Type="datetime" Mode="In" />
+    <Parameter Name="pNombreEmpresa" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_Crea_Despacho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="pCodDespacho" Type="varchar" Mode="In" />
     <Parameter Name="pCodCircuito" Type="int" Mode="In" />
@@ -302,6 +308,28 @@
   </Function>
   <Function Name="sp_Crea_TipoEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="pTipoEquipoNombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Edita_Contrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pNumContrato" Type="int" Mode="In" />
+    <Parameter Name="pFechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="pFechaFinal" Type="datetime" Mode="In" />
+    <Parameter Name="pNombreEmpresa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Edita_Despacho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pCodDespacho" Type="varchar" Mode="In" />
+    <Parameter Name="pCodCircuito" Type="int" Mode="In" />
+    <Parameter Name="pNombreDespacho" Type="varchar" Mode="In" />
+    <Parameter Name="pCantTecJud" Type="int" Mode="In" />
+    <Parameter Name="pCantTecJur" Type="int" Mode="In" />
+    <Parameter Name="pCantCoordJud" Type="int" Mode="In" />
+    <Parameter Name="pCantJuezCoord" Type="int" Mode="In" />
+    <Parameter Name="pCantJuezTram" Type="int" Mode="In" />
+    <Parameter Name="pCantJueces" Type="int" Mode="In" />
+    <Parameter Name="pCantOtros" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Edita_TipoEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDTipoEquipo" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="PJInventarioDBStoreContainer">
     <EntitySet Name="Asignado" EntityType="Self.Asignado" Schema="dbo" store:Type="Tables" />

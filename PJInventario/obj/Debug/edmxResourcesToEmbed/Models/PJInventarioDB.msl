@@ -157,5 +157,9 @@
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="sp_Crea_Despacho" FunctionName="PJInventarioDB.Store.sp_Crea_Despacho" />
     <FunctionImportMapping FunctionImportName="sp_Crea_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Crea_TipoEquipo" />
+    <FunctionImportMapping FunctionImportName="sp_Edita_TipoEquipo" FunctionName="PJInventarioDB.Store.sp_Edita_TipoEquipo" />
+    <FunctionImportMapping FunctionImportName="sp_Edita_Despacho" FunctionName="PJInventarioDB.Store.sp_Edita_Despacho" />
+    <FunctionImportMapping FunctionImportName="sp_Crea_Contrato" FunctionName="PJInventarioDB.Store.sp_Crea_Contrato" />
+    <FunctionImportMapping FunctionImportName="sp_Edita_Contrato" FunctionName="PJInventarioDB.Store.sp_Edita_Contrato" />
   </EntityContainerMapping>
 </Mapping>

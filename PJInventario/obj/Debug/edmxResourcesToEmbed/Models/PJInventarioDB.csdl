@@ -355,5 +355,33 @@
     <FunctionImport Name="sp_Crea_TipoEquipo">
       <Parameter Name="pTipoEquipoNombre" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_Edita_TipoEquipo">
+      <Parameter Name="IDTipoEquipo" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Edita_Despacho">
+      <Parameter Name="pCodDespacho" Mode="In" Type="String" />
+      <Parameter Name="pCodCircuito" Mode="In" Type="Int32" />
+      <Parameter Name="pNombreDespacho" Mode="In" Type="String" />
+      <Parameter Name="pCantTecJud" Mode="In" Type="Int32" />
+      <Parameter Name="pCantTecJur" Mode="In" Type="Int32" />
+      <Parameter Name="pCantCoordJud" Mode="In" Type="Int32" />
+      <Parameter Name="pCantJuezCoord" Mode="In" Type="Int32" />
+      <Parameter Name="pCantJuezTram" Mode="In" Type="Int32" />
+      <Parameter Name="pCantJueces" Mode="In" Type="Int32" />
+      <Parameter Name="pCantOtros" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Crea_Contrato">
+      <Parameter Name="pNumContrato" Mode="In" Type="Int32" />
+      <Parameter Name="pFechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="pFechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="pNombreEmpresa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Edita_Contrato">
+      <Parameter Name="pNumContrato" Mode="In" Type="Int32" />
+      <Parameter Name="pFechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="pFechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="pNombreEmpresa" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>
