@@ -175,16 +175,22 @@
                     </td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn">
-                                <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> @Html.ActionLink("Editar", "DespachoEdita", new { id = item.CodDespacho })
-                            </button>
-                            <button class="btn"  data-toggle="modal" data-target="#@mdlDetalles">
+
+                            <div class="btn-group">
+                                @using (Html.BeginForm("DespachoEdita", "Despacho", new { id = item.CodDespacho }))
+                                {
+                                    <button class="btn" type="submit">
+                                        <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-edit-file-48.png"> Editar
+                                    </button>
+                                }
+                            </div>
+                            <button class="btn" data-toggle="modal" data-target="#@mdlDetalles">
                                 <img style="width:20px; height:20px;" src="~/Assets/Icons/icons8-view-details-48.png"> Detalles
                             </button>
                             <div class="modal fade" id="@mdlDetalles" tabindex="-1" role="dialog" aria-labelledby="fm-modal2" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header bg-secondary">                                            
+                                        <div class="modal-header bg-secondary">
                                             <button class="close" data-dismiss="modal" aria-label="Cerrar">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>

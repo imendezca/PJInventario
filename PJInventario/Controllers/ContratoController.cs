@@ -42,7 +42,7 @@ namespace PJInventario.Controllers
                 return RedirectToAction("ContratoIndex");
             }
 
-            return View(contrato);
+            return View("Contrato");
         }
 
         [HttpPost]
